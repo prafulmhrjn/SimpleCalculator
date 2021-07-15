@@ -1,157 +1,120 @@
 from tkinter import *
 
 root = Tk()
-root.geometry("420x430")
+root.geometry("354x460")
+root.title("CALCULATOR")
+mylabel = Label(root, text="CALCULATOR", bg='light green', font=("Arial", 20, 'bold'))
+mylabel.pack(side=TOP)
+root.config(background='light green')
+
+textin = StringVar()
+operator = ""
 
 
-#Giving the title of the project
-root.title("Simple Calculator")
-
-e=Entry(root, width=50, borderwidth=20,fg="blue")
-e.grid(row=0,column=0,columnspan=6,padx=10,pady=10)
-root.configure(background="orange")
-
-#click function
-def button_click(number):
-    current = e.get()
-    e.delete(0,END)
-    e.insert(0, str(current) + str(number))
-
-def button_erase(number):
-    current = e.get()
-
-    e.delete(0,str(current) - str(number))
+def clickbut(number):
+    global operator
+    operator = operator + str(number)
+    textin.set(operator)
 
 
-def button_clear():
-    e.delete(0,END)
-
-def button_equals():
-    second_number=e.get()
-    e.delete(0,END)
-
-    if math == "addition":
-        e.insert(0,f_number+int(second_number))
-
-    if math == "subtraction":
-        e.insert(0,f_number-int(second_number))
-
-    if math == "multiplication":
-        e.insert(0,f_number*int(second_number))
-
-    if math == "division":
-        e.insert(0,f_number/int(second_number))
-
-    if math == "percent":
-        e.insert(0,f_number/100)
+def equlbut():
+    global operator
+    add = str(eval(operator))
+    textin.set(add)
+    operator = ''
 
 
+def equlbut():
+    global operator
+    sub = str(eval(operator))
+    textin.set(sub)
+    operator = ''
 
 
+def equlbut():
+    global operator
+    mul = str(eval(operator))
+    textin.set(mul)
+    operator = ''
 
 
-def button_add():
-    first_number=e.get()
-    global f_number
-    global math
-    math="addition"
-    f_number=int(first_number)
-    e.delete(0,END)
+def equlbut():
+    global operator
+    div = str(eval(operator))
+    textin.set(div)
+    operator = ''
 
 
+def clrbut():
+    textin.set('')
 
 
-def button_subtract():
-    first_number = e.get()
-    global f_number
-    global math
-    math = "subtraction"
-    f_number = int(first_number)
-    e.delete(0, END)
+mytext = Entry(root, font=("Courier New", 12, 'bold'), textvar=textin, width=25, bd=5, bg='powder blue')
+mytext.pack()
 
-def button_multiply():
-    first_number = e.get()
-    global f_number
-    global math
-    math = "multiplication"
-    f_number = int(first_number)
-    e.delete(0, END)
+but1 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(1), text="1",
+              font=("Courier New", 16, 'bold'))
+but1.place(x=10, y=100)
 
-def button_divide():
-    first_number = e.get()
-    global f_number
-    global math
-    math = "division"
-    f_number = int(first_number)
-    e.delete(0, END)
+but2 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(2), text="2",
+              font=("Courier New", 16, 'bold'))
+but2.place(x=10, y=170)
 
-def button_percentage():
-    first_number = e.get()
-    global f_number
-    global math
-    math = "percent"
-    f_number = int(first_number)
-    e.delete(0,END)
+but3 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(3), text="3",
+              font=("Courier New", 16, 'bold'))
+but3.place(x=10, y=240)
 
+but4 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(4), text="4",
+              font=("Courier New", 16, 'bold'))
+but4.place(x=75, y=100)
 
+but5 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(5), text="5",
+              font=("Courier New", 16, 'bold'))
+but5.place(x=75, y=170)
 
+but6 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(6), text="6",
+              font=("Courier New", 16, 'bold'))
+but6.place(x=75, y=240)
 
-button_1=Button(root, text="1",padx=40,pady=20,borderwidth=5,command=lambda:button_click(1))
-button_2=Button(root, text="2",padx=40,pady=20,borderwidth=5,command=lambda:button_click(2))
-button_3=Button(root, text="3",padx=40,pady=20,borderwidth=5,command=lambda:button_click(3))
-button_4=Button(root, text="4",padx=40,pady=20,borderwidth=5,command=lambda:button_click(4))
-button_5=Button(root, text="5",padx=40,pady=20,borderwidth=5,command=lambda:button_click(5))
-button_6=Button(root, text="6",padx=40,pady=20,borderwidth=5,command=lambda:button_click(6))
-button_7=Button(root, text="7",padx=40,pady=20,borderwidth=5,command=lambda:button_click(7))
-button_8=Button(root, text="8",padx=40,pady=20,borderwidth=5,command=lambda:button_click(8))
-button_9=Button(root, text="9",padx=40,pady=20,borderwidth=5,command=lambda:button_click(9))
-button_0=Button(root, text="0",padx=40,pady=20,borderwidth=5,command=lambda:button_click(0))
-button_percentage=Button(root, text="%",padx=40,pady=20,borderwidth=5,command=button_percentage)
-button_equals=Button(root, text="=",padx=90,pady=20,borderwidth=5,command=button_equals)
-button_clear=Button(root, text="AC",padx=85,pady=20,borderwidth=5,command=button_clear)
-button_add=Button(root, text="+",padx=40,pady=20,borderwidth=5,command=button_add)
-button_subtract=Button(root, text="-",padx=40,pady=20,borderwidth=5,command=button_subtract)
-button_multiply=Button(root, text="x",padx=40,pady=20,borderwidth=5,command=button_multiply)
-button_divide=Button(root, text="/",padx=40,pady=20,borderwidth=5,command=button_divide)
-button_erase=Button(root, text="clear",padx=30,pady=20,borderwidth=5,command=button_erase)
+but7 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(7), text="7",
+              font=("Courier New", 16, 'bold'))
+but7.place(x=140, y=100)
 
+but8 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(8), text="8",
+              font=("Courier New", 16, 'bold'))
+but8.place(x=140, y=170)
 
+but9 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(9), text="9",
+              font=("Courier New", 16, 'bold'))
+but9.place(x=140, y=240)
 
-#Button placement on screen
-button_1.grid(row=4,column=1)
-button_2.grid(row=4,column=2)
-button_3.grid(row=4,column=3)
-button_4.grid(row=3,column=1)
-button_5.grid(row=3,column=2)
-button_6.grid(row=3,column=3)
-button_7.grid(row=2,column=1)
-button_8.grid(row=2,column=2)
-button_9.grid(row=2,column=3)
-button_0.grid(row=5,column=1)
-button_percentage.grid(row=6,column=1)
-button_equals.grid(row=6,column=2,columnspan=2)
-button_clear.grid(row=5,column=2,columnspan=2)
-button_add.grid(row=2,column=4)
-button_subtract.grid(row=3,column=4)
-button_multiply.grid(row=4,column=4)
-button_divide.grid(row=5,column=4)
-button_erase.grid(row=6,column=4)
+but0 = Button(root, padx=14, pady=14, bd=4, bg='white', command=lambda: clickbut(0), text="0",
+              font=("Courier New", 16, 'bold'))
+but0.place(x=10, y=310)
 
+butdot = Button(root, padx=47, pady=14, bd=4, bg='white', command=lambda: clickbut("."), text=".",
+                font=("Courier New", 16, 'bold'))
+butdot.place(x=75, y=310)
 
-root.iconbitmap('C:/Users/Prafulmhrjn/OneDrive/Desktop/calculator.ico')
+butpl = Button(root, padx=14, pady=14, bd=4, bg='white', text="+", command=lambda: clickbut("+"),
+               font=("Courier New", 16, 'bold'))
+butpl.place(x=205, y=100)
 
+butsub = Button(root, padx=14, pady=14, bd=4, bg='white', text="-", command=lambda: clickbut("-"),
+                font=("Courier New", 16, 'bold'))
+butsub.place(x=205, y=170)
 
+butml = Button(root, padx=14, pady=14, bd=4, bg='white', text="*", command=lambda: clickbut("*"),
+               font=("Courier New", 16, 'bold'))
+butml.place(x=205, y=240)
 
+butdiv = Button(root, padx=14, pady=14, bd=4, bg='white', text="/", command=lambda: clickbut("/"),
+                font=("Courier New", 16, 'bold'))
+butdiv.place(x=205, y=310)
 
+butclear = Button(root, padx=14, pady=119, bd=4, bg='white', text="AC", command=clrbut, font=("Courier New", 16, 'bold'))
+butclear.place(x=270, y=100)
 
-
-
-
-
-
-
-
-
-
-
+butequal = Button(root, padx=151, pady=14, bd=4, bg='white', command=equlbut, text="=", font=("Courier New", 16, 'bold'))
+butequal.place(x=10, y=380)
 root.mainloop()
