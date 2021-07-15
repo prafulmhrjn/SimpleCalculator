@@ -17,35 +17,35 @@ def clickbut(number):
     textin.set(operator)
 
 
-def equlbut():
+def equalbut():
     global operator
     add = str(eval(operator))
     textin.set(add)
     operator = ''
 
 
-def equlbut():
+def equalbut():
     global operator
     sub = str(eval(operator))
     textin.set(sub)
     operator = ''
 
 
-def equlbut():
+def equalbut():
     global operator
     mul = str(eval(operator))
     textin.set(mul)
     operator = ''
 
 
-def equlbut():
+def equalbut():
     global operator
     div = str(eval(operator))
     textin.set(div)
     operator = ''
 
 
-def clrbut():
+def clearbut():
     textin.set('')
 
 
@@ -112,9 +112,9 @@ butdiv = Button(root, padx=14, pady=14, bd=4, bg='white', text="/", command=lamb
                 font=("Courier New", 16, 'bold'))
 butdiv.place(x=205, y=310)
 
-butclear = Button(root, padx=14, pady=119, bd=4, bg='white', text="AC", command=clrbut, font=("Courier New", 16, 'bold'))
+butclear = Button(root, padx=14, pady=119, bd=4, bg='white', text="AC", command=clearbut, font=("Courier New", 16, 'bold'))
 butclear.place(x=270, y=100)
 
-butequal = Button(root, padx=151, pady=14, bd=4, bg='white', command=equlbut, text="=", font=("Courier New", 16, 'bold'))
+butequal = Button(root, padx=151, pady=14, bd=4, bg='white', command=equalbut, text="=", font=("Courier New", 16, 'bold'))
 butequal.place(x=10, y=380)
 root.mainloop()
