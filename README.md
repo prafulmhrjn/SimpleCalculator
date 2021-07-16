@@ -3,7 +3,7 @@
 # Simple Calculator
 
 # Introduction
-A simple calculator can be used to do basic arithmetic calculations like adding, subtracting, multiplying and dividing.
+A simple calculator can be used to do basic arithmetic calculations like adding, subtracting, multiplying and dividing.<br>
 
 
 # Features
