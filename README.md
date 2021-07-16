@@ -15,6 +15,8 @@ A simple calculator can be used to do basic calculations like adding, subtractin
 
 
 
+
+Student Details:<br>
 Praful Maharjan<br>
 Student ID: 210233<br>
 Batch 30 B<br>
